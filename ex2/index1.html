@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Clock</title>
+<style>
+body {
+  background-color: #17D4FE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.clock {
+  color: black;
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+<div class="clock">
+  <span id="time"></span>
+</div>
+<input type="checkbox" id="dark-mode-switch">
+<label for="dark-mode-switch">Dark Mode</label>
+<script>
+var clock = document.querySelector(".clock");
+var timeElement = document.getElementById("time");
+var darkModeSwitch = document.querySelector("#dark-mode-switch");
+
+function showTime() {
+  var date = new Date();
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  var formattedTime = h + ":" + m + ":" + s;
+  timeElement.innerHTML = formattedTime;
+}
+
+setInterval(showTime, 1000);
+
+darkModeSwitch.addEventListener("click", function() {
+  if (darkModeSwitch.checked) {
+    clock.classList.add("dark-mode");
+  } else {
+    clock.classList.remove("dark-mode");
+  }
+});
+</script>
+</body>
+</html>
