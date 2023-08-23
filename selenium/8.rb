@@ -1,21 +1,20 @@
 require 'selenium-webdriver'
 
-Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\MADHURA\Desktop\Git training\selenium\drivers\chromedriver.exe'
-driver = Selenium::WebDriver.for :chrome
+Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\USER\Desktop\Desktop\Git training\selenium\drivers\chromedriver.exe'
+driver= Selenium::WebDriver.for :chrome
 
 driver.get "https://www.globalsqa.com/demo-site/sliders/#Steps"
 
-button = driver.find_element(:xpath, "//*[@id=\"slider\"]/span")
-button.click
+driver.switch_to.frame driver.find_element(:xpath, "/html/body/div/div[1]/div[2]/div/div/div[2]/div/div/div[3]/p/iframe")
 
-slider = driver.find_element(id: 'slider')
+slider = driver.find_element(:id, "slider") 
 
-slider_width = slider.size.width
-new_slider_position = 0.7
+slider_pointer = slider.find_element(:tag_name, "span")
 
-x_coordinate = slider.location.x + (slider_width * new_slider_position)
+slider_pointer.send_keys(:right)
 
-action_chains = driver.action
-action_chains.click_and_hold(slider).move_by(x_coordinate, 0).release.perform
+slider_value = driver.find_element(:id, "amount")
+
+puts slider_value.attribute("value")
 
 driver.quit
