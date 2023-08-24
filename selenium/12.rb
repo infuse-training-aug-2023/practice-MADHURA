@@ -1,38 +1,66 @@
 require 'selenium-webdriver'
 
-Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\USER\Desktop\Desktop\Git training\selenium\drivers\chromedriver.exe'
-driver= Selenium::WebDriver.for :chrome
+class Shop
 
-driver.get 'https://www.saucedemo.com/v1/'
+  def initialize
+    Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\madhura.patil\Desktop\Git training\selenium\drivers\chromedriver.exe'
+    @driver = Selenium::WebDriver.for :chrome
+    @driver.manage.window.maximize
+    @driver.get 'https://www.saucedemo.com/v1/'
 
-driver.manage.window.maximize
+  end
 
-username = driver.find_element(:id, 'user-name') 
-password = driver.find_element(:id, 'password')
-find_button = driver.find_element(:id, 'login-button')
+  def login(username, password)
 
-username.send_keys("standard_user")
-password.send_keys("secret_sauce")
-find_button.click
+    username_field = @driver.find_element(id: 'user-name')
+    password_field = @driver.find_element(id: 'password')
+    login_button = @driver.find_element(id: 'login-button')
+    
+    username_field.send_keys(username)
+    password_field.send_keys(password)
+    login_button.click
 
-dropdown = driver.find_element(:xpath,'//*[@id="inventory_filter_container"]/select')
+  end
 
-select = Selenium::WebDriver::Support::Select.new(dropdown)
+  def add_to_cart(item_name)
 
-select.select_by(:value, "za")
+    dropdown = @driver.find_element(xpath: '//*[@id="inventory_filter_container"]/select')
+    select = Selenium::WebDriver::Support::Select.new(dropdown)
+    select.select_by(:value, "za")
 
-add_to_cart = driver.find_element(:xpath, '//*[@id="inventory_container"]/div/div[4]/div[3]/button')
-add_to_cart.click
+    add_to_cart_button = @driver.find_element(xpath: '//*[@id="inventory_container"]/div/div[4]/div[3]/button')
+    add_to_cart_button.click
 
-cart = driver.find_element(:id,'shopping_cart_container')
-cart.click
+  end
 
-checkout= driver.find_element(:xpath,'//*[@id="cart_contents_container"]/div/div[2]/a[2]')
-checkout.click
+  def go_to_cart
 
-driver.quit
+    cart_icon = @driver.find_element(id: 'shopping_cart_container')
+    cart_icon.click
 
+  end
 
+  def checkout
+
+    checkout_button = @driver.find_element(xpath: '//*[@id="cart_contents_container"]/div/div[2]/a[2]')
+    checkout_button.click
+
+  end
+
+  def close
+
+    @driver.quit
+
+  end
+  
+end
+
+shop1= Shop.new
+shop1.login("standard_user", "secret_sauce")
+shop1.add_to_cart("Sauce Labs Backpack")
+shop1.go_to_cart
+shop1.checkout
+shop1.close
 
 
 
