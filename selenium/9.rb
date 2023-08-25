@@ -1,17 +1,21 @@
 require 'selenium-webdriver'
 
-Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\USER\Desktop\Desktop\Git training\selenium\drivers\chromedriver.exe'
-driver= Selenium::WebDriver.for :chrome
+Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\madhura.patil\Desktop\Git training\selenium\drivers\chromedriver.exe'
+ 
+driver = Selenium::WebDriver.for :chrome
 
+driver.get 'https://cosmocode.io/automation-practice-webtable/'
 
-driver.get "https://cosmocode.io/automation-practice-webtable/"
+header_row = driver.find_element(tag_name: 'tr')
 
-table_header= driver.find_elements(:tag_name, 'h3')
+header_cells = header_row.find_elements(tag_name: 'td')
 
-puts "table headers are-"
+ header_cells.each do |header_cell|
 
-table_header.each do |table_header|
-    puts table_header.text
+  table_header = header_cell.find_element(tag_name: 'strong').text
+
+  puts table_header
+
 end
 
 driver.quit
