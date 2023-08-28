@@ -17,6 +17,8 @@ rows.each do |row|
     
     if columns.size > column_index
       puts columns[column_index].text
+    else
+      puts "Column index #{column_index} is out of bounds"
     end
 
 end 

@@ -20,7 +20,7 @@ if row_index < rows.size
     puts "Value of cell at Row #{row_index}, Column #{column_index}: #{cell_value}"
 
   else
-    puts "Column index #{column_index} is out of bounds for row #{row_index}."
+    puts "Column index #{column_index} is out of bounds."
   end
 
 else
