@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Clock</title>
+<style>
+body {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: black;
+}
+
+.clock {
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode-label {
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<div class="clock">
+  <span id="time">12:00:00 AM</span>
+</div>
+<div class="dark-mode-label">
+  <label for="dark-mode-switch">Dark Mode</label>
+  <input type="checkbox" id="dark-mode-switch">
+</div>
+<script>
+var body = document.body;
+var clockElement = document.querySelector(".clock");
+var timeElement = document.getElementById("time");
+var darkModeSwitch = document.querySelector("#dark-mode-switch");
+
+function showTime() {
+  var date = new Date();
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  var amPm = "AM";
+  
+  if (h >= 12) {
+    amPm = "PM";
+    if (h > 12) {
+      h -= 12;
+    }
+  }
+
+  var formattedTime = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')} ${amPm}`;
+  timeElement.innerHTML = formattedTime;
+}
+
+showTime(); 
+setInterval(showTime, 1000);
+
+darkModeSwitch.addEventListener("click", function() {
+  if (darkModeSwitch.checked) {
+    body.classList.add("dark-mode");
+  } else {
+    body.classList.remove("dark-mode");
+  }
+});
+</script>
+</body>
+</html>
