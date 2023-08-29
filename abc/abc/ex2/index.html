@@ -40,17 +40,17 @@ body {
   <input type="checkbox" id="dark-mode-switch">
 </div>
 <script>
-var body = document.body;
-var clockElement = document.querySelector(".clock");
-var timeElement = document.getElementById("time");
-var darkModeSwitch = document.querySelector("#dark-mode-switch");
+const body = document.body;
+const clockElement = document.querySelector(".clock");
+const timeElement = document.getElementById("time");
+const darkModeSwitch = document.querySelector("#dark-mode-switch");
 
 function showTime() {
-  var date = new Date();
-  var h = date.getHours();
-  var m = date.getMinutes();
-  var s = date.getSeconds();
-  var amPm = "AM";
+  const date = new Date();
+  let h = date.getHours();
+  const m = date.getMinutes();
+  const s = date.getSeconds();
+  let amPm = "AM";
   
   if (h >= 12) {
     amPm = "PM";
@@ -59,7 +59,7 @@ function showTime() {
     }
   }
 
-  var formattedTime = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')} ${amPm}`;
+  const formattedTime = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')} ${amPm}`;
   timeElement.innerHTML = formattedTime;
 }
 
@@ -67,11 +67,7 @@ showTime();
 setInterval(showTime, 1000);
 
 darkModeSwitch.addEventListener("click", function() {
-  if (darkModeSwitch.checked) {
-    body.classList.add("dark-mode");
-  } else {
-    body.classList.remove("dark-mode");
-  }
+  body.classList.toggle("dark-mode", darkModeSwitch.checked);
 });
 </script>
 </body>
