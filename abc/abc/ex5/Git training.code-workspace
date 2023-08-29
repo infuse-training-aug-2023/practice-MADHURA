@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"name": "practice-MADHURA",
+			"path": "../../../../../practice-MADHURA"
+		},
+		{
+			"name": "BLUE",
+			"path": "../../../../BLUE"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Git training"
+	}
+}

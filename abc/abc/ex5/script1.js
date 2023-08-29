@@ -1,14 +1,22 @@
-const baseURL = "https://www.omdbapi.com/?apikey=f10c4c5c";
+let p = fetch("https://www.omdbapi.com/?s=starwars&apikey=f10c4c5c");
+
+p.then((response) => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+}).then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.error("Fetch error:", error);
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("searchInput");
     const movieCardContainer = document.querySelector(".movie-card-container");
     const sortSelect = document.getElementById("sortSelect");
+     searchInput.addEventListener("input", debounce(performSearch, 300)); 
 
-    searchInput.setAttribute("type", "search");
-    searchInput.classList.add("search-input");
-
-    searchInput.addEventListener("input", debounce(performSearch, 300));
     searchInput.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             performSearch();
@@ -30,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function performSearch() {
         const searchTerm = searchInput.value;
         const sortValue = sortSelect.value;
-        const apiUrl = `${baseURL}&s=${searchTerm}`;
+        const apiUrl = `https://www.omdbapi.com/?s=${searchTerm}&apikey=f10c4c5c`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -91,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function openSidePanel(movie) {
         const sideIframe = document.getElementById("sideIframe");
-        const omdbApiUrl = `${baseURL}&i=${movie.imdbID}`;
+        const omdbApiUrl = `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=f10c4c5c`;
 
         fetch(omdbApiUrl)
             .then(response => response.json())
