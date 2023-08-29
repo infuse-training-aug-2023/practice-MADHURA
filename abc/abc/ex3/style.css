@@ -1,0 +1,242 @@
+:root {
+    --primary-color: rgb(0, 102, 153);
+    --secondary-color: rgb(0, 153, 204);
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 20% auto;
+    height: 100vh;
+  }
+  
+  aside {
+    border-right: 1px solid rgb(205, 205, 205);
+    padding-right: 20px;
+  }
+  
+  .um-logo {
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(205, 205, 205);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .um-logo img {
+    max-width: 100%;
+  }
+  
+  .um-user {
+    display: flex;
+    align-items: center;
+    padding: 7% 0;
+  }
+  
+  .um-user img {
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .um-user-name {
+    margin-left: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  
+  .um-user-email {
+    font-size: 0.9em;
+    color: gray;
+    margin-left: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    color: rgb(0, 102, 153);;
+    padding: 0;
+    font-size: 14px;
+  }
+  
+  nav ul li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+  }
+  
+  nav .bi {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--primary-color);
+  }
+  
+  nav ul li:hover {
+    background-color: rgb(189, 238, 255);
+  }
+  
+  .um-navitems__secondary {
+    border-top: 1.5px solid gray;
+    border-bottom: 1px solid gray;
+  }
+  
+  .test {
+    min-height: 100vh;
+    border: 11px solid rgb(165, 165, 165);
+    border-right: 9px solid rgb(165, 165, 165);
+  }
+  
+  .test-data > span {
+    background-color: black;
+    color: white;
+    padding: 0.4%;
+    font-size: large;
+  }
+  
+  .test-data > span:nth-child(2) {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.4%;
+    font-size: large;
+  }
+  
+  .test-data .bi-pencil-square {
+    color: white;
+    font-size: large;
+  }
+  
+  .test-data .bi-x {
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    float: right;
+  }
+  
+  .test-properties > span {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.2%;
+    display: block;
+    font-weight: bold;
+  }
+  
+  .test-properties .form-properties {
+    display: flex;
+    font-size: medium;
+    color: var(--primary-color);
+  }
+  
+  .description textarea {
+    background-color: lightgrey;
+    width: 212%;
+    border-radius: 2px;
+    resize: none;
+  }
+  
+  .details label {
+    margin: 5px 0;
+  }
+  
+  .details select {
+    color: gray;
+    border: 1px solid rgb(232, 232, 232);
+    margin-right: 4%;
+    margin-top: 5px;
+    border-color: transparent;
+    width: 10vw;
+    padding: 5px;
+  }
+  
+  #tags {
+    color: var(--primary-color);
+  }
+  
+  .test-main {
+    height: 71vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 10px;
+  }
+  
+  .test-flowchart > span {
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 5px;
+  }
+  
+  .test-flowchart {
+    color: gray;
+    background-color: rgb(243, 241, 241);
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 1px solid gray;
+  }
+  
+  .options {
+    padding: 5px;
+    background-color: white;
+  }
+  
+  .options .bi {
+    color: gray;
+    font-size: x-large;
+    margin-top: 5px;
+    padding: 3px;
+  }
+  
+  .test-variables,
+  .test-parameters {
+    height: calc(71vh / 2);
+    border-left: 2px solid var(--secondary-color);
+    border-bottom: 1px solid gray;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .test-variables > span,
+  .test-parameters > span {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+  }
+  
+  .test-variables .bi-plus,
+  .test-parameters .bi-plus {
+    align-self: flex-end;
+    color: var(--secondary-color);
+    font-size: x-large;
+    font-weight: bolder;
+  }
+  
+  .table-header {
+    color: var(--secondary-color);
+    display: flex;
+    margin-top: 4%;
+    font-size: medium;
+    padding: 2% 4%;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .test-flowchart .bi + .bi {
+    margin-left: 5px;
+    border-left: 1px solid gray;
+    padding-left: 5px;
+  }
+  
+  .test-flowchart .bi + .bi.bi-toggle-on,
+  .test-flowchart .bi + .bi.bi-lightning,
+  .test-flowchart .bi + .bi.bi-arrows-angle-expand,
+  .test-flowchart .bi + .bi.bi-back,
+  .test-flowchart .bi + .bi.bi-clipboard {
+    margin-left: 10px;
+    padding-left: 0;
+    border-left: none;
+  }
+  

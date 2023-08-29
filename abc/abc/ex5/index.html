@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMDB MOVIES</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand">
+                <img src="movies_app_logo.jpg" alt="movie app logo"> OMDB movies
+            </li>
+            <li>Home</li>
+            <li>About</li>
+            <li class="search">
+                <div class="search-container">
+                    <input type="search" id="searchInput" placeholder="Search the movies"> 
+                    <img src="search_icon.png" alt="Search Icon" id="searchIcon">
+                </div>
+            </li>
+            <li>
+                <select id="sortSelect">
+                    <option value="">Sort by</option>
+                    <option value="year">Year</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="movie-card-container">
+        <!-- Movie cards will be added dynamically here -->
+    </div>
+    <div id="side-panel" class="side-panel">
+        <iframe id="sideIframe" width="100%" height="100%"></iframe>
+        <button class="close-button">Close</button>
+    </div>
+   <script src="script.js"></script> 
+</body>
+</html>
